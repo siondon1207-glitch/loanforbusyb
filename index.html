@@ -1,23 +1,697 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+   <style>
+        /* 다채롭고 부드러운 현대적 금융 레이아웃 스타일 설정 */
+        body {
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7f9; 
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(189, 195, 199, 0.2); 
+            border-radius: 16px; 
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            padding: 35px 0;
+            text-align: center;
+            border-radius: 16px 16px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* 내비게이션 바 스타일 */
+        nav { 
+            margin-bottom: 35px; 
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #f8fafc; 
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        nav ul li { 
+            flex-grow: 1; 
+            text-align: center; 
+        }
+        nav ul li a {
+            display: block;
+            padding: 16px 10px;
+            text-decoration: none;
+            color: #475569;
+            font-weight: 700;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #3b82f6;
+            color: #ffffff;
+        }
+
+        /* 컨텐츠 래퍼 및 사이드바 */
+        .content-wrap {
+            display: flex;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            padding: 25px;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+        }
+        .sidebar h2 {
+            font-size: 1.4em;
+            color: #1e3c72;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-weight: 700;
+        }
+        .sub-menu { 
+            list-style: none; 
+            padding: 0; 
+            margin: 20px 0; 
+        }
+        .sub-menu li { 
+            margin-bottom: 12px; 
+        }
+        .sub-menu li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #475569;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .sub-menu li a:hover {
+            color: #1e3c72;
+            font-weight: 700;
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+        }
+
+        /* 메인 컨텐츠 영역 */
+        .main-content { 
+            flex: 3; 
+            min-width: 60%; 
+        }
+        h2 {
+            font-size: 1.9em;
+            color: #1e3c72;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 15px;
+            margin-top: 40px;
+            font-weight: 800;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #2563eb;
+            margin-top: 35px;
+            border-left: 6px solid #1e3c72;
+            padding-left: 15px;
+            font-weight: 700;
+        }
+        h4 {
+            font-size: 1.25em;
+            color: #1e293b;
+            margin-top: 25px;
+            font-weight: 600;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        /* 강조 박스 스타일 */
+        .highlight-box {
+            background-color: #eff6ff;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 8px solid #2563eb;
+            margin: 25px 0;
+            line-height: 1.8;
+            font-size: 1.05em;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.05);
+        }
+        .highlight-box strong { 
+            color: #1e3c72; 
+            font-weight: bold; 
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            font-size: 1em;
+        }
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+        }
+        tbody tr:nth-child(even) { 
+            background-color: #f8fafc; 
+        }
+        tbody tr:hover { 
+            background-color: #e2e8f0; 
+        }
+
+        /* 리스트 구조 */
+        ol.financial-list, ul.financial-list {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        ol.financial-list li, ul.financial-list li {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        /* 체류 시간 증진용 금융 시뮬레이션 양식 */
+        .simulation-container {
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-top: 35px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+        .form-section h5 {
+            font-size: 1.1em;
+            margin: 0 0 15px 0;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group { 
+            margin-bottom: 15px; 
+        }
+        .form-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: #475569; 
+            font-size: 0.95em; 
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1e293b;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+            color: #475569;
+        }
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+        .btn-calc {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        .btn-calc:hover { 
+            background-color: #1d4ed8; 
+        }
+        
+        /* 시뮬레이션 결과창 */
+        .result-panel {
+            display: none;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #3b82f6;
+            margin-top: 25px;
+        }
+        .result-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eff6ff;
+            padding-bottom: 10px;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            background-color: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #f1f5f9;
+        }
+        .result-label {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+        .result-val {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* 외부 링크 섹션 */
+        .external-links { 
+            margin-top: 35px; 
+        }
+        .external-links h4 { 
+            color: #1e3c72; 
+            font-size: 1.1em; 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid #3b82f6; 
+            padding-bottom: 5px;
+        }
+        .external-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+            font-size: 0.95em;
+        }
+        .external-links a:hover { 
+            color: #1d4ed8; 
+            text-decoration: underline; 
+        }
+
+        /* 강조 키워드 및 가독성 개선 */
+        .kw-emphasis { 
+            color: #c2410c; 
+            font-weight: 700; 
+        }
+    </style>
+
+    <!-- JSON-LD 구조화 데이터 - 네이버 웹페이지, 에이전트 크롤러, LLM 검색 최적화 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "중소기업신용대출",
+      "description": "2026년도 기준 전국 중소기업신용대출 금리 비교 및 한도 계산 서비스. 신용보증기금, 기술보증기금, 중소벤처기업진흥공단 등 정책자금 정보와 시중은행 다이렉트 신용대출 상품의 예상 비용 및 금리 차이점을 상세히 비교 분석합니다.",
+      "brand": {
+        "@type": "Brand",
+        "name": "중소기업 신용대출 전문 분석 센터"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "2.5",
+        "highPrice": "8.5",
+        "priceCurrency": "KRW",
+        "offerCount": "15",
+        "additionalType": "LoanProduct"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container" style="box-shadow: none; margin: 0 auto; padding: 0;">
+            <h1>중소기업신용대출 비교 센터</h1>
+            <p>2026년 정책자금 가이드 및 시중 은행 신용 대출 한도 분석</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul class="main-menu">
+                <li><a href="#intro_sec">중소기업신용대출 정의</a></li>
+                <li><a href="#national_sec">지역별 정책 동향</a></li>
+                <li><a href="#compare_sec">기관별 금융상품 비교</a></li>
+                <li><a href="#simulation_sec">자가진단 및 한도계산기</a></li>
+                <li><a href="#faq_sec">자주 묻는 질문(FAQ)</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrap">
+            <div class="sidebar">
+                <h2>신뢰할 수 있는 기관 정보</h2>
+                <div class="external-links">
+                    <a href="https://loanforbusinessz.koreahankang.com" target="_blank">금융 정보 통합 센터 (reliabledone.com)</a>
+                    <a href="https://namu.wiki/w/%EC%A4%91%EC%86%8C%EA%B8%B0%EC%97%85" target="_blank">나무위키 - 중소기업의 정의와 역사</a>
+                    <a href="https://loanforbusin.koreahankang.com" target="_blank">신용보증기금 (KODIT)</a>
+                    <a href="https://www.kibo.or.kr" target="_blank">기술보증기금 (KIBO)</a>
+                    <a href="https://www.kosmes.or.kr" target="_blank">중소벤처기업진흥공단 (KOSME)</a>
+                    <a href="https://loanforbusij.koreahankang.com" target="_blank">소상공인시장진흥공단 (SEMAS)</a>
+                </div>
+                
+                <h2 style="margin-top: 30px;">핵심 키워드 카테고리</h2>
+                <p style="font-size: 0.9em; color: #64748b; line-height: 1.6;">
+                    네이버 및 구글 검색엔진에서 함께 많이 찾는 테마: 법인사업자대출, 개인사업자 자금 조달, 시설자금, 운전자금대출, 보증서 발급 절차, 정책금융 한도금액, 신용보증기금 심사 기준.
+                </p>
+            </div>
+
+            <div class="main-content">
+                <h2 id="intro_sec">1. 중소기업신용대출 핵심 구조와 2026년 금융 환경</h2>
+                
+                <div class="highlight-box">
+                    <p>대한민국 경제의 허리를 담당하는 수많은 기업들에게 안정적인 자금 흐름을 유지하는 일은 생존과 직결됩니다. 특히 <span class="kw-emphasis">중소기업신용대출</span>은 담보 능력이 부족한 법인 및 개인사업자가 기업의 신용도와 미래 성장성을 바탕으로 금융권에서 자금을 조달하는 필수적인 금융 수단입니다. 2026년 현재 고금리 기조가 다소 완화되었으나 여전히 시중 금리는 중소기업에게 상당한 경영 비용 압박을 주고 있습니다. 이에 따라 사전에 자사의 재무제표 상태를 분석하고, <span class="kw-emphasis">가장 저렴한 곳</span>의 금리 혜택을 꼼꼼하게 따져보는 지혜가 필요합니다.</p>
+                </div>
+
+                <p>일반적으로 자금 조달을 고민할 때 대리점이나 금융 브로커 등 불투명한 중개 경로를 통하기보다 공인된 시중 은행의 <span class="kw-emphasis">다이렉트</span> 모바일 웹사이트나 공인 신용평가 컨설팅 업체를 거치는 편이 훨씬 안전합니다. 자금을 신청할 때 신용 등급 하락 우려를 줄이고 불필요한 중개 수수료 등의 비용 지출을 예방하는 신뢰성 높은 절차가 기본이 됩니다. 본 분석 가이드는 다양한 신용대출 상품의 <span class="kw-emphasis">종류</span>와 장단점을 비교하고, 각 기업별 조건에 따른 <span class="kw-emphasis">예상 금액</span> 및 이율을 사전에 가늠해 볼 수 있도록 상세한 정보성 데이터베이스를 제공합니다.</p>
+
+                <h3 id="national_sec">2. 전국 지역별 중소기업 금융 지원 현황</h3>
+                <p>대한민국의 주요 거점 지역 및 지방 자치 단체들은 지역 내 중소기업 육성을 위해 매년 막대한 규모의 자금을 편성하고 있습니다. 특히 시중 금리와의 격차를 보전해 주는 '이차보전사업'은 이자 부담을 덜어주는 핵심 혜택입니다. 서울을 비롯하여 전국 30개 이상의 핵심 지자체에서 운영 중인 자금 특징은 다음과 같습니다.</p>
+
+                <h4>수도권 및 광역시 권역 금융 매칭 특징</h4>
+                <ol class="financial-list">
+                    <li><strong>서울 및 경기도 권역:</strong> 대한민국 중소기업의 절반 이상이 밀집해 있는 서울특별시와 수원, 고양, 용인, 성남, 부천, 화성, 안산, 남양주, 안안, 평택, 시흥, 파주, 김포 등의 위성 도시들은 4차 산업혁명 기술 기반 중소기업 및 벤처 인증 기업에 특화된 신용대출 매칭을 적극적으로 진행하고 있습니다. 경기도 중소기업 육성자금은 시중 은행 협약 금리에서 일정 비율을 차감해 주는 할인 혜택을 제공합니다.</li>
+                    <li><strong>인천 및 서부 권역:</strong> 남동국가산업단지가 위치한 인천광역시는 제조업 중심 기업의 원자재 구매 비용 및 설비 도입 목적의 자금 대출 수요가 큽니다.</li>
+                    <li><strong>부산 및 울산, 경남 권역:</strong> 창원, 구미, 포항 등 영남권 제조 벨트와 인접한 부산광역시 및 울산광역시는 해양, 물류, 조선 기자재 분야 중소기업을 대상으로 특화된 보증서 매칭 신용 상품을 주력으로 다룹니다.</li>
+                    <li><strong>대구 및 대전 권역:</strong> 대구광역시는 신규 창업 및 전통 섬유·기계 제조 혁신 기업을 대상으로, 대전광역시는 대덕연구개발특구와 연계된 기술집약형 중소기업 신용대출에 초점을 맞추고 있습니다.</li>
+                    <li><strong>광주 및 전라 권역:</strong> 광주광역시와 전주, 여수, 목포 등 전남·전북 지역은 친환경 미래차 부품 산업 및 신재생에너지 관련 유망 중소기업에 대출 한도 우대 혜택을 확대 제공합니다.</li>
+                    <li><strong>강원, 충청, 세종 및 제주 권역:</strong> 바이오·의료기기 산업 중심의 강원도, 바이오 및 반도체 후공정 거점인 충청북도와 충청남도(천안, 청주 등), 행정 중심 복합도시로서 서비스 및 스마트시티 기술이 활성화된 세종특별자치시(조치원읍 포함), 관광 및 친환경 6차 산업 중심의 제주특별자치도는 각각 지역 밀착형 금융 컨설팅을 지원합니다.</li>
+                </ol>
+
+                <h3 id="compare_sec">3. 금융권 및 보증 기관별 상품 장단점 비교</h3>
+                <p>중소기업이 신용대출을 신청할 수 있는 경로는 크게 정부 정책 금융기관, 1금융권 시중 은행, 그리고 2금융권 금융사로 나뉩니다. 각 채널은 담보 조건, 심사 기간, 금리 한도 측면에서 명확한 차이점을 보입니다. 아래 표는 2026년 시장 평균치를 기준으로 작성된 대출 경로별 비교 자료입니다.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>대출 구분</th>
+                            <th>금리 수준 (연, 평균)</th>
+                            <th>예상 한도 (원)</th>
+                            <th>주요 장점</th>
+                            <th>주요 단점</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>정부 정책자금 (신보/기보/중진공)</strong></td>
+                            <td>2.5% ~ 4.5%</td>
+                            <td>기업당 최대 10억 ~ 50억</td>
+                            <td>금리가 가장 저렴하며, 신용도가 낮아도 미래 성장성으로 진행 가능</td>
+                            <td>서류 제출이 매우 방대하고 심사 기간이 최소 1개월 이상 소요됨</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1금융권 시중은행 (KB, 신한, 하나 등)</strong></td>
+                            <td>4.0% ~ 6.5%</td>
+                            <td>매출액의 10% ~ 25% 내외</td>
+                            <td>대출 신청 및 집행이 비교적 빠르고 브랜드 신뢰성이 높음</td>
+                            <td>기업 자체의 신용평가등급(BBB- 이상) 및 담보 유무에 엄격함</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2금융권 및 상호금융</strong></td>
+                            <td>6.5% ~ 12.0%</td>
+                            <td>한도 협의 가능 범위 넓음</td>
+                            <td>신속한 당일 자금 집행 가능, 심사 문턱이 상대적으로 낮음</td>
+                            <td>금리 비용 부담이 매우 크고 장기 거래 시 기업 신용에 부정적 영향</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>일반적으로 전문가들이 추천하는 순서는 정부 보증서 대출을 우선 신청하고, 추가 자금이 필요할 때 시중은행 다이렉트 신용대출 상품을 결합하는 방식입니다. 만약 내부적인 재무 구조나 신용 등급 문제로 인해 1금융권 거래가 즉각적으로 거절되었다면, 전문 컨설팅 상담을 통해 장기적인 재무 구조 개선 작업을 거쳐 진입하는 편이 중장기적인 비용 측면에서 우월합니다.</p>
+
+                <h3 id="simulation_sec">4. 중소기업신용대출 예산 자가진단 및 이자 계산기</h3>
+                <p>자사의 재무제표 상태를 바탕으로 대출 신청 전에 대략적인 승인 가능성과 한도 범위를 가늠해보는 것이 좋습니다. 아래 입력란에 기업 정보를 기입하고 '분석 및 예상 결과 확인' 버튼을 누르면 내부 알고리즘에 기초한 대략적인 평가 견적 결과가 하단에 즉시 시각화됩니다. 이 시뮬레이션 계산기를 통해 체류하며 자사의 대출 규모와 금융 비용을 추정해보시기 바랍니다.</p>
+
+                <div class="simulation-container">
+                    <div class="form-section">
+                        <h5>[기본 정보 입력]</h5>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="company_name">기업명 (혹은 브랜드명)</label>
+                                <input type="text" id="company_name" placeholder="예: (주)한국테크">
+                            </div>
+                            <div class="form-group">
+                                <label for="region_select">본사 소재지 선택</label>
+                                <select id="region_select">
+                                    <option value="seoul">서울특별시</option>
+                                    <option value="gyeonggi">경기도</option>
+                                    <option value="incheon">인천광역시</option>
+                                    <option value="daejeon">대전광역시</option>
+                                    <option value="daegu">대구광역시</option>
+                                    <option value="busan">부산광역시</option>
+                                    <option value="gwangju">광주광역시</option>
+                                    <option value="sejong">세종특별자치시</option>
+                                    <option value="etc">기타 지방 자치 단체</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5>[기업 재무 지표]</h5>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="annual_revenue">연간 매출액 (단위: 억 원)</label>
+                                <input type="number" id="annual_revenue" placeholder="예: 25" min="1" max="10000">
+                            </div>
+                            <div class="form-group">
+                                <label for="credit_rating">예상 기업 신용평가등급 대역</label>
+                                <select id="credit_rating">
+                                    <option value="high">A등급 이상 (우수)</option>
+                                    <option value="mid_high">BBB ~ BBB+ 등급 (양호)</option>
+                                    <option value="mid">BB ~ BB+ 등급 (보통)</option>
+                                    <option value="low">B등급 이하 (미흡)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="wish_loan_amt">희망 대출 신청 금액 (단위: 억 원)</label>
+                                <input type="number" id="wish_loan_amt" placeholder="예: 5" min="1" max="500">
+                            </div>
+                            <div class="form-group">
+                                <label for="loan_term">희망 대출 약정 기간</label>
+                                <select id="loan_term">
+                                    <option value="1">1년 만기 일시 상환</option>
+                                    <option value="3">3년 분할 상환</option>
+                                    <option value="5">5년 분할 상환</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5>[추가 가점 요인 선택]</h5>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="chk_venture" value="1">
+                                <label for="chk_venture">벤처기업 / 이노비즈 인증 보유</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="chk_patent" value="1">
+                                <label for="chk_patent">특허권 보유 (기술 가치 평가 연계 가능)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="chk_export" value="1">
+                                <label for="chk_export">수출 실적 보유 (연 10만 달러 이상)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-calc" onclick="runFinanceAnalysis()">중소기업 신용대출 자가진단 실행하기</button>
+
+                    <div class="result-panel" id="analysisResult">
+                        <div class="result-title">중소기업 신용대출 가상 진단서 결과</div>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <div class="result-label">추천 금융 대출 종류</div>
+                                <div class="result-val" id="res_loan_type">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">예상 대출 금리 (연)</div>
+                                <div class="result-val" id="res_interest_rate">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">최대 승인 예상 한도</div>
+                                <div class="result-val" id="res_max_limit">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">연간 예상 금융 비용 (이자)</div>
+                                <div class="result-val" id="res_annual_cost">-</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9em; color: #64748b; margin-top: 15px; border-top: 1px dashed #e2e8f0; padding-top: 10px;">
+                            본 시뮬레이션 결과는 사용자가 입력한 기초 재무 정보와 보증 우대 조건 가중치를 산술적으로 계산한 단순 모의 견적입니다. 실제 시중 은행 및 정책 기관의 공식 심사 결과와는 신용도 세부 내역 및 담보 여부에 따라 차이가 발생할 수 있으므로, 반드시 공식 접수 기관을 통해 무료 상세 상담을 받아보시기 바랍니다.
+                        </p>
+                    </div>
+                </div>
+
+                <script>
+                    function runFinanceAnalysis() {
+                        var compName = document.getElementById('company_name').value || '해당 중소기업';
+                        var revenue = parseFloat(document.getElementById('annual_revenue').value) || 0;
+                        var rating = document.getElementById('credit_rating').value;
+                        var wishAmt = parseFloat(document.getElementById('wish_loan_amt').value) || 0;
+                        
+                        var isVenture = document.getElementById('chk_venture').checked;
+                        var isPatent = document.getElementById('chk_patent').checked;
+                        var isExport = document.getElementById('chk_export').checked;
+
+                        if (revenue <= 0 || wishAmt <= 0) {
+                            alert('매출액과 희망 대출 금액을 정확하게 입력해 주십시오.');
+                            return;
+                        }
+
+                        // 분석 연산 개시
+                        var baseRate = 5.5; // 기본 금리 기준선
+                        var maxLimitRatio = 0.20; // 기본 매출액 대비 한도 비율 (20%)
+                        var loanType = "시중은행 다이렉트 신용대출";
+
+                        // 신용평가등급에 따른 조정
+                        if (rating === 'high') {
+                            baseRate -= 1.5;
+                            maxLimitRatio += 0.10;
+                        } else if (rating === 'mid_high') {
+                            baseRate -= 0.8;
+                            maxLimitRatio += 0.05;
+                        } else if (rating === 'mid') {
+                            baseRate += 0.5;
+                        } else {
+                            baseRate += 2.5;
+                            maxLimitRatio -= 0.08;
+                        }
+
+                        // 추가 우대 요인 연산
+                        var addPointCount = 0;
+                        if (isVenture) { baseRate -= 0.4; maxLimitRatio += 0.05; addPointCount++; }
+                        if (isPatent) { baseRate -= 0.3; maxLimitRatio += 0.03; addPointCount++; }
+                        if (isExport) { baseRate -= 0.3; maxLimitRatio += 0.05; addPointCount++; }
+
+                        // 추천 대출 종류 판정
+                        if (addPointCount >= 2 || rating === 'high') {
+                            loanType = "신용보증기금/기보 협약보증대출";
+                        } else if (rating === 'low' && revenue < 20) {
+                            loanType = "소상공인시장진흥공단/중진공 정책자금";
+                        }
+
+                        // 계산 연산 결과 추출
+                        var estimatedLimit = Math.round((revenue * maxLimitRatio) * 10) / 10;
+                        if (estimatedLimit < 0.5) estimatedLimit = 0.5; // 최소 5천만 원 보장 설정
+                        
+                        // 희망금액이 너무 클 경우 방어선 구축
+                        if (estimatedLimit > 100) {
+                            estimatedLimit = 100; // 중소기업 무담보 신용 한계선 보정
+                        }
+
+                        var finalRate = Math.round(baseRate * 100) / 100;
+                        if (finalRate < 2.5) finalRate = 2.5; // 하한선 고정
+
+                        var assignedAmt = Math.min(wishAmt, estimatedLimit);
+                        var annualCost = Math.round((assignedAmt * 100000000 * (finalRate / 100)));
+
+                        // 결과 반영
+                        document.getElementById('res_loan_type').innerText = loanType;
+                        document.getElementById('res_interest_rate').innerText = "연 " + finalRate + "%";
+                        document.getElementById('res_max_limit').innerText = "약 " + estimatedLimit + "억 원";
+                        document.getElementById('res_annual_cost').innerText = "약 " + (annualCost / 10000).toLocaleString() + "만 원";
+
+                        document.getElementById('analysisResult').style.display = 'block';
+                    }
+                </script>
+
+                <h3 id="faq_sec">5. 중소기업신용대출에 대한 오해와 실제 (FAQ)</h3>
+                
+                <h4>Q1. 담보 자산이 아예 존재하지 않아도 수억 원대 규모의 신용 조달이 실제로 가능한가요?</h4>
+                <p>결론부터 말씀드리면 가능합니다. 많은 중소기업 대표님들이 신용대출은 소액만 가능하고 고액 자금은 반드시 건물이나 토지 등 고정 담보물이 있어야 한다고 생각합니다. 그러나 중소기업신용대출 상품의 상당수는 기업의 기술력, 미래 매출 성과 계약서, 세무서 신고 기준 최근 3개년 매출 추이 등을 고려하여 무담보 신용보증서를 발급해주는 방식으로 진행됩니다. 따라서 재무제표 관리가 성실히 이루어졌다면 담보 없이도 충분한 자금을 융통할 수 있습니다.</p>
+
+                <h4>Q2. 대출 심사 시 감점 요인이 되어 탈락하는 빈번한 사유에는 어떤 것들이 있나요?</h4>
+                <p>가장 빈번하게 심사 거절이나 감점 요인으로 작용하는 항목은 국세 및 지방세의 미납 혹은 체납 내역입니다. 아무리 재무 구조가 우수한 기업이라도 신청일 기준 세금 미납이 존재하면 신보, 기보 및 시중 금융사의 모든 심사 프로세스가 그 즉시 거절됩니다. 또한 대표자 개인의 신용 등급 하락, 연체 이력, 혹은 무리한 제2금융권 다중 고금리 채무 이용 이력 등도 중대한 결격 사유에 해당합니다.</p>
+
+                <h4>Q3. 기술보증기금과 신용보증기금 보증서 상품 중 우리 회사에 더 맞는 기관은 어디인가요?</h4>
+                <p>두 보증 기관은 설립 취지와 심사 타겟에서 차이점을 보입니다. 기술보증기금(기보)은 특허 기술, 소프트웨어 개발 능력, 친환경 친화 기술 등 정량적인 매출 지표보다는 무형의 기술 가치 평가를 우선시합니다. 반면 신용보증기금(신보)은 매출액의 규모, 거래처의 안정성, 업종 내 시장 점유율 등 전통적인 기업 재무 신용도를 한도 산출의 주된 잣대로 삼습니다. 자사의 핵심 경쟁력이 기술 특허에 있다면 기술보증기금을, 풍부한 유통 매출과 탄탄한 영업 이익에 있다면 신용보증기금을 노리는 것이 영리한 비교 노하우입니다.</p>
+
+                <h2>6. 2026년 금리 절감 및 자금 승인률 극대화 로직</h2>
+                <p>2026년 한 해 동안 급변하는 대외 거시 경제 속에서 비용 부담을 최소화하며 신속하게 자금을 마련하기 위해 기억해야 할 세 가지 핵심 성공 방정식이 있습니다.</p>
+
+                <ol class="financial-list">
+                    <li><strong>일회성 단기 자금과 장기 시설 자금의 철저한 분리:</strong> 원자재 구입비와 일시적인 급여 충당금처럼 회전 주기가 빠른 자금은 단기 운전자금 마이너스통장 형식의 다이렉트 신용대출을 비교 이용하는 것이 이자 비용 절감에 유리합니다. 반면 연구소 증설이나 대형 생산 장비 도입 목적의 자금은 장기 이차보전 정책 자금으로 연계 신청하여 최소 3년에서 5년 이상의 상환 스케줄을 확보하는 편이 유동성 리스크 예방 차원에서 훨씬 안전합니다.</li>
+                    <li><strong>다양한 모바일 핀테크 플랫폼 연동 비교 검토:</strong> 최근에는 토스, 카카오톡, 네이버페이 등과 같은 다양한 인터넷 기반 앱을 통해 자사의 사업자 등록 정보를 입력하는 것만으로 복잡한 서류 제출 없이 시중은행 10여 곳의 대출 금리 순위를 단 3분 만에 일괄 비교해 볼 수 있는 간편 조회 시스템이 대중화되었습니다. 이러한 온라인 혜택을 사전에 활용하면 가장 싼곳의 금리를 빠르게 비교하고 방문 예약까지 가능합니다.</li>
+                    <li><strong>공공 정보의 사전 활용:</strong> 네이버 검색이나 구글 등에서 주기적으로 정부 및 각 자치단체의 신규 정책자금 개시 일정을 체크하여 공고가 열리는 분기 초반에 빠르게 신청해야 조기 소진의 덫을 피할 수 있습니다.</li>
+                </ol>
+
+                <div class="highlight-box" style="border-left-color: #10b981; background-color: #ecfdf5;">
+                    <strong>안정적인 기업 자금 조달을 위한 마지막 당부</strong><br>
+                    인터넷 공간이나 각종 소셜 네트워크 서비스(SNS), 트위터, 인스타그램, 페이스북, 유튜브 상에서 자행되는 무분별한 낚시성 허위 마케팅, 사은품 증정이나 상품권 제공, 혹은 허가받지 않은 불법 수수료 요구 업체들의 광고 문구에 절대 현혹되어서는 안 됩니다. 공신력 있는 국책 금융기관의 가이드를 전적으로 존중하고, 법에서 허용하는 테두리 안에서 정형화된 정공법으로 준비하는 중소기업만이 장기적인 성공의 과실을 안정적으로 쟁취할 수 있습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+  
